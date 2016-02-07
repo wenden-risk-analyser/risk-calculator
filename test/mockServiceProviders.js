@@ -1,9 +1,11 @@
-const emptyCustomerService = {
-    getAll() {}
+const emptyCustService = {
+    getAll() {},
+    getById() {}
 };
 
 const emptyBetService = {
-    getAll() {}
+    getAll() {},
+    search() {}
 };
 
 const invalidService = {
@@ -11,7 +13,7 @@ const invalidService = {
 };
 
 module.exports = {
-    emptyCustomerService,
+    emptyCustService,
     emptyBetService,
     invalidService
 };

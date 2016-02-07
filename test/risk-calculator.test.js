@@ -11,7 +11,7 @@ tape('Ensures required arguments are provided', assert => {
 
     // throw error for missing bet service provider
     assert.throws(() => {
-        riskCalculator(mockProviders.emptyCustomerService);
+        riskCalculator(mockProviders.emptyCustService);
     }, new RegExp(content.MISSING_SERVICE + ' betService.'));
 
     assert.end();
@@ -25,7 +25,7 @@ tape('Ensures service providers quack like they should', assert => {
 
     // throw error for missing bet service provider
     assert.throws(() => {
-        riskCalculator(mockProviders.emptyCustomerService, mockProviders.invalidService);
+        riskCalculator(mockProviders.emptyCustService, mockProviders.invalidService);
     }, new RegExp(content.INVALID_SERVICE + ' betService.'));
 
     assert.end();
