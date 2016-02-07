@@ -1,0 +1,26 @@
+{
+  "name": "risk-calculator",
+  "version": "0.0.1",
+  "description": "Risk assessment calculator",
+  "main": "index.js",
+  "scripts": {
+    "lint": "./node_modules/.bin/eslint src/**/*.js"
+  },
+  "keywords": [
+    "risk",
+    "assessment",
+    "customers",
+    "bet",
+    "unsettled",
+    "settled",
+    "unsettled",
+    "betting"
+  ],
+  "author": "Dom Wenden",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^1.10.3",
+    "eslint-config-airbnb": "^5.0.0",
+    "eslint-plugin-react": "^3.16.1"
+  }
+}
