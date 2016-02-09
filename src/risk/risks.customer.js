@@ -13,12 +13,15 @@ function HighWinPercentage(settledBets) {
     const wins = settledBets.filter(bet => bet.payout > 0);
     if ((wins.length / settledBets.length) > riskConstants.RISKY_WIN_PERCENTAGE) {
         return {
-            risk: riskConstants.RiskSeverity.RISKY,
+            severity: riskConstants.RiskSeverity.RISKY,
+            risk: riskConstants.RiskLevels.RISKY,
             reason: riskConstants.RiskReasons.CUSTOMER_LARGE_WIN_PERCENTAGE
         };
     }
+
     return {
-        risk: riskConstants.RiskSeverity.SAFE,
+        severity: riskConstants.RiskSeverity.SAFE,
+        risk: riskConstants.RiskLevels.SAFE,
         reason: ''
     };
 }

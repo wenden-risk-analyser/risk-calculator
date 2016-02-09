@@ -2,6 +2,7 @@ const check             = require('check-types');
 const riskConstants     = require('./risk-constants');
 const validationContent = riskConstants.ValidationContent;
 const customerRisks     = require('./risk/risks.customer');
+const betRisks     = require('./risk/risks.bets');
 
 /*
 * Customer Service interface
@@ -40,10 +41,10 @@ const services = {
 *
 */
 function mostSevere(a, b) {
-    if (a.risk < b.risk) {
+    if (a.severity < b.severity) {
         return 1;
     }
-    if (a.risk > b.risk) {
+    if (a.severity > b.severity) {
         return 0;
     }
 
@@ -81,12 +82,28 @@ function customerRiskProfile(customerId) {
 *
 * Generate the risk profile for a given bet.
 *
-* @param {string} betId Identifier of the required bet.
+* @param {string} bet Bet object to return the risk profile for.
 *
 * @returns {Object} The risk profile for the bet.
 */
-function betRiskProfile() {
-    // const bet = this._betService.getById(betId);
+function betRiskProfile(bet) {
+    const settledBets = services.betService.search({
+        customerId: bet.customerId,
+        settled: true
+    });
+
+    const risks = [];
+
+    // check if the customer is high risk
+    risks.push(customerRiskProfile(bet.customerId));
+
+    // run through risk criteria to generate risk profile
+    betRisks.forEach(risk => {
+        risks.push(risk(bet, settledBets));
+    });
+
+    // only want to return the highest severity risk
+    return risks.length === 0 ? [] : risks.sort(mostSevere)[0];
 }
 
 /*

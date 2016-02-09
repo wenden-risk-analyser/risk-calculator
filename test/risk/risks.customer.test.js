@@ -38,7 +38,8 @@ tape('Should correctly identify a safe customer', assert => {
     const riskCalculator = require('../../src/risk-calculator')(mocks.emptyCustService, betServiceSafeCustomer);
     const riskProfile = riskCalculator.customerRiskProfile();
     assert.deepLooseEqual(riskProfile, {
-        risk: riskConstants.RiskSeverity.SAFE,
+        severity: riskConstants.RiskSeverity.SAFE,
+        risk: riskConstants.RiskLevels.SAFE,
         reason: ''
     });
     assert.end();
@@ -81,7 +82,8 @@ tape('Should correctly identify a risky customer', assert => {
     const riskProfile = riskCalculator.customerRiskProfile();
 
     assert.deepLooseEqual(riskProfile, {
-        risk: riskConstants.RiskSeverity.RISKY,
+        severity: riskConstants.RiskSeverity.RISKY,
+        risk: riskConstants.RiskLevels.RISKY,
         reason: riskConstants.RiskReasons.CUSTOMER_LARGE_WIN_PERCENTAGE
     });
     assert.end();
