@@ -17,10 +17,10 @@ module.exports = {
         SAFE: 'Safe',
         UNUSUAL: 'Unusual',
         RISKY: 'Risky',
-        HIGHLYRISKY: 'Highly Risky'
+        HIGHLYRISKY: 'HighlyRisky'
     },
     RiskReasons: {
-        CUSTOMER_LARGE_WIN_PERCENTAGE: 'Large win percentage.',
+        CUSTOMER_LARGE_WIN_PERCENTAGE: 'Customer high win percentage.',
         LARGE_STAKE: 'Stake is unusually large based on betting history.',
         EXCEPTIONAL_STAKE: 'Stake is exceptionally large based on betting history.',
         LARGE_PAYOUT: 'Potential payout is too high.'
