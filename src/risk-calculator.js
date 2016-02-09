@@ -9,12 +9,10 @@ const betRisks     = require('./risk/risks.bets');
 *
 * @typedef CustomerService
 * @property {Function} getAll Returns all customers
-* @property {Function} getById Returns a customer given a customer Id
 *
 */
 const customerServiceInterface = Object.freeze({
-    getAll() {},
-    getById(customerId) {} // eslint-disable-line no-unused-vars
+    getAll() {}
 });
 
 /*
@@ -22,6 +20,7 @@ const customerServiceInterface = Object.freeze({
 *
 * @typedef BetService
 * @property {Function} getAll Returns all bets
+* @property {Function} search Returns subset of bets based on query
 *
 */
 const betServiceInterface = Object.freeze({

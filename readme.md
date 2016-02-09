@@ -25,6 +25,15 @@ The provided bet service must implement the following interface:
     * @returns {Array} An array of customer objects
     */
     getAll()
+
+    /*
+    * Returns subset of bets
+    *
+    * @param {object} betQuery Query object used to filter bets.
+    *
+    * @returns {Array} An array of customer objects
+    */
+    search(betQuery) {}
 ```
 
 ## Development
@@ -34,3 +43,4 @@ After any changes, run ```npm run lint``` to ensure code adheres to package stan
 
 ## Todo
 [ ] make service provider type checking error message more meaningful.
+[ ] update the readme a lot more with data structures.
